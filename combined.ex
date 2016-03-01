@@ -2,7 +2,7 @@
 defmodule Combined do
   import Convert
 
-  def height_to_mph(meters) do #takes meters, returns mph
-    Drop.fall_velocity(meters) |> mps_to_mph
+  def height_to_mph(body \\ :earth, meters) do #takes meters, returns mph
+    Drop.fall_velocity({body, meters}) |> mps_to_mph
   end
 end
