@@ -20,20 +20,26 @@ defmodule Drop do
 
   import :math, only: [sqrt: 1]
 
-  def fall_velocity({planemo, distance}) when distance >= 0 do
+  def fall_velocity({planemo, distance}) do
     fall_velocity(planemo, distance)
   end
 
-  defp fall_velocity(:earth, distance) do
-    sqrt(2 * 9.8 * distance)
-  end
+  defp fall_velocity(planemo, distance) do
+    gravity = case planemo do
+      :earth when distance >= 0 -> 9.8
+      :moon when distance >= 0 -> 1.6
+      :mars when distance >= 0 -> 3.71
+    end
 
-  defp fall_velocity(:moon, distance) do
-    sqrt(2 * 1.6 * distance)
-  end
+    velocity = sqrt(2 * gravity * distance)
 
-  defp fall_velocity(:mars, distance) do
-    sqrt(2 * 3.71 * distance)
+    if velocity > 20 do
+      IO.puts("Look out below!")
+    else
+      IO.puts("Reasonable...")
+    end
+
+    velocity
   end
 
 end
