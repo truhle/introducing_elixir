@@ -33,13 +33,13 @@ defmodule Drop do
 
     velocity = sqrt(2 * gravity * distance)
 
-    if velocity > 20 do
-      IO.puts("Look out below!")
-    else
-      IO.puts("Reasonable...")
-    end
-
-    velocity
+    # if velocity > 20 do
+    #   IO.puts("Look out below!")
+    # else
+    #   IO.puts("Reasonable...")
+    # end
+    #
+    # velocity
   end
 
 end
