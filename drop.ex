@@ -20,6 +20,14 @@ defmodule Drop do
 
   import :math, only: [sqrt: 1]
 
+  def drop do
+    receive do
+      {from, planemo, distance} ->
+        send(from, {planemo, distance, fall_velocity(planemo, distance)})
+      drop()
+    end
+  end
+
   def fall_velocity({planemo, distance}) do
     fall_velocity(planemo, distance)
   end
