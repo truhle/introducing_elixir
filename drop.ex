@@ -1,5 +1,9 @@
 defmodule Drop do
   require Planemo
+  require Functionmaker
+
+  Functionmaker.create_functions([{:mercury, 3.7}, {:venus, 8.9}, {:earth, 9.8}, {:moon, 1.6}, {:mars, 3.7}, {:jupiter, 23.1}, {:saturn, 9.0}, {:uranus, 8.7}, {:neptune, 11.0}, {:pluto, 0.6}])
+  
   def drop do
     setup
     handle_drops
@@ -97,5 +101,7 @@ defmodule Drop do
   #   :ets.insert(:planemos, Planemo.planemo(name: name, gravity: gravity, diameter: diameter, distance_from_sun: distance))
   #   insert_into_table(tail)
   # end
+
+
 
 end
